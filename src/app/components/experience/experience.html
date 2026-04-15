@@ -1,0 +1,20 @@
+<section class="experience" aria-labelledby="experience-title">
+  <div class="experience__content">
+    <h2 id="experience-title" class="experience__title">Professional Experience</h2>
+    <div class="experience__timeline">
+      <article class="experience__item" *ngFor="let exp of experiences">
+        <div class="experience__icon" aria-hidden="true">
+          <fa-icon [icon]="faBriefcase"></fa-icon>
+        </div>
+        <div class="experience__details">
+          <time class="experience__period" [attr.datetime]="exp.period">{{exp.period}}</time>
+          <h3 class="experience__company">{{exp.company}}</h3>
+          <h4 class="experience__role">{{exp.role}}</h4>
+          <ul class="experience__description">
+            <li *ngFor="let item of exp.description">{{item}}</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

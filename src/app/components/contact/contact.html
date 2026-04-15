@@ -1,0 +1,83 @@
+<section id="contact" class="contact" aria-labelledby="contact-title">
+  <div class="contact__content">
+    <h2 id="contact-title" class="contact__title">Get in Touch</h2>
+    <div class="contact__container">
+      <div class="contact__info">
+        <h3>Contact Information</h3>
+        <div class="contact__details">
+          <div class="contact__item">
+            <fa-icon [icon]="faPhone" aria-hidden="true"></fa-icon>
+            <a [href]="'tel:' + contactInfo.phone" aria-label="Phone number">{{contactInfo.phone}}</a>
+          </div>
+          <div class="contact__item">
+            <fa-icon [icon]="faEnvelope" aria-hidden="true"></fa-icon>
+            <a [href]="'mailto:' + contactInfo.email" aria-label="Email address">{{contactInfo.email}}</a>
+          </div>
+          <div class="contact__item">
+            <fa-icon [icon]="faLinkedin" aria-hidden="true"></fa-icon>
+            <a [href]="contactInfo.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">LinkedIn Profile</a>
+          </div>
+          <div class="contact__item">
+            <fa-icon [icon]="faEnvelope" aria-hidden="true"></fa-icon>
+            <span aria-label="Address">{{contactInfo.address}}</span>
+          </div>
+        </div>
+      </div>
+      
+      <form class="contact__form" [formGroup]="contactForm" (ngSubmit)="onSubmit()" 
+            [class.submitting]="isSubmitting" aria-label="Contact form">
+        <div class="contact__status" *ngIf="submitSuccess" role="alert">
+          Message sent successfully! I'll get back to you soon.
+        </div>
+
+        <div class="contact__status contact__status--error" *ngIf="submitError" role="alert">
+          {{ submitErrorMessage || 'Error sending message. Please try again or contact me directly.' }}
+        </div>
+
+        <div class="contact__form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" formControlName="name"
+                 [class.invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+                 [attr.aria-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+                 [attr.aria-describedby]="contactForm.get('name')?.invalid ? 'name-error' : null">
+          <div id="name-error" class="error-message" 
+               *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+               role="alert">
+            {{getErrorMessage('name')}}
+          </div>
+        </div>
+
+        <div class="contact__form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email"
+                 [class.invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+                 [attr.aria-invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+                 [attr.aria-describedby]="contactForm.get('email')?.invalid ? 'email-error' : null">
+          <div id="email-error" class="error-message" 
+               *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+               role="alert">
+            {{getErrorMessage('email')}}
+          </div>
+        </div>
+
+        <div class="contact__form-group">
+          <label for="message">Message</label>
+          <textarea id="message" formControlName="message" rows="5"
+                    [class.invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+                    [attr.aria-invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+                    [attr.aria-describedby]="contactForm.get('message')?.invalid ? 'message-error' : null"></textarea>
+          <div id="message-error" class="error-message" 
+               *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+               role="alert">
+            {{getErrorMessage('message')}}
+          </div>
+        </div>
+
+        <button type="submit" class="contact__submit" [disabled]="isSubmitting || !contactForm.valid">
+          <span class="button-text">{{isSubmitting ? 'Sending...' : 'Send Message'}}</span>
+          <div class="spinner" *ngIf="isSubmitting" aria-hidden="true"></div>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

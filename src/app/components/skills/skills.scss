@@ -1,0 +1,143 @@
+.skills {
+  padding: 6rem 2rem;
+  background-color: #ffffff;
+
+  &__content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    color: #1a1a2e;
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, #4a90e2, #67b26f);
+    }
+  }
+
+  &__categories {
+    display: grid;
+    gap: 4rem;
+  }
+
+  &__category {
+    animation: fadeInUp 0.6s ease-out forwards;
+
+    &-title {
+      font-size: clamp(1.5rem, 3vw, 1.8rem);
+      color: #2d3748;
+      margin-bottom: 2rem;
+      padding-left: 1rem;
+      border-left: 4px solid #4a90e2;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 2rem;
+  }
+
+  &__item {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: default;
+    animation: fadeInUp 0.5s ease-out forwards;
+
+    @media (hover: hover) {
+      &:hover {
+        .skills__icon {
+          transform: scale(1.1) rotate(8deg);
+          color: #4a90e2;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: transform;
+  }
+
+  &__name {
+    font-size: 1rem;
+    color: #4a5568;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    padding: 4rem 1rem;
+
+    &__title {
+      font-size: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 1rem;
+    }
+
+    &__item {
+      padding: 1rem;
+    }
+
+    &__icon {
+      font-size: 2rem;
+    }
+
+    &__name {
+      font-size: 0.9rem;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes iconPop {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2) rotate(8deg);
+    }
+    100% {
+      transform: scale(1) rotate(0);
+    }
+  }
+
+  .animate {
+    animation-play-state: running;
+
+    .skills__icon {
+      animation: iconPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+  }
+}

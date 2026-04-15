@@ -1,0 +1,15 @@
+<section class="education" aria-labelledby="education-title">
+  <div class="education__content">
+    <h2 id="education-title" class="education__title">Education</h2>
+    <div class="education__grid">
+      <div class="education__card" *ngFor="let edu of educationList" tabindex="0">
+        <div class="education__icon" aria-hidden="true">
+          <fa-icon [icon]="faGraduationCap"></fa-icon>
+        </div>
+        <h3 class="education__degree">{{edu.degree}}</h3>
+        <p class="education__institution">{{edu.institution}}</p>
+        <time class="education__year" [attr.datetime]="edu.year">{{edu.year}}</time>
+      </div>
+    </div>
+  </div>
+</section>

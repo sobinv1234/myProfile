@@ -1,0 +1,112 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+
+  &__content {
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  &__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  &__greeting {
+    display: block;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: #4a90e2;
+  }
+
+  &__name {
+    font-weight: bold;
+    background: linear-gradient(90deg, #4a90e2, #67b26f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__role {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 1.5rem;
+    color: #67b26f;
+  }
+
+  &__summary {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #a0aec0;
+    max-width: 600px;
+  }
+
+  &__cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+    &:first-child {
+      background: #4a90e2;
+      color: white;
+      
+      &:hover {
+        background: #357abd;
+        transform: translateY(-2px);
+      }
+    }
+    
+    &--outline {
+      border: 2px solid #4a90e2;
+      color: #4a90e2;
+      
+      &:hover {
+        background: #4a90e2;
+        color: white;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    text-align: center;
+
+    &__content {
+      padding: 0 1rem;
+    }
+
+    &__summary {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__cta {
+      justify-content: center;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,0 +1,239 @@
+.contact {
+  padding: 6rem 2rem;
+  background-color: #ffffff;
+
+  &__content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    color: #1a1a2e;
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, #4a90e2, #67b26f);
+    }
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  &__info {
+    padding: 2rem;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+
+    h3 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__details {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    fa-icon {
+      font-size: 1.2rem;
+      color: #4a90e2;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #4a90e2;
+      }
+    }
+  }
+
+  &__form {
+    padding: 2rem;
+    display: grid;
+    gap: 1.5rem;
+
+    &.submitting {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+  }
+
+  &__form-group {
+    display: grid;
+    gap: 0.5rem;
+
+    label {
+      font-weight: 500;
+      color: #2d3748;
+    }
+
+    .error-message {
+      color: #e53e3e;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: #cbd5e0;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: #4a90e2;
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+      }
+
+      &.invalid {
+        border-color: #e53e3e;
+        
+        &:focus {
+          box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+        }
+      }
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+  }
+
+  &__submit {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 2rem;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 150px;
+
+    &:hover:not(:disabled) {
+      background: #357abd;
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      background: #e2e8f0;
+      cursor: not-allowed;
+      transform: none;
+
+      .button-text {
+        opacity: 0.7;
+      }
+    }
+
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 0.8s linear infinite;
+    }
+  }
+
+  &__status {
+    background-color: #48bb78;
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    animation: slideIn 0.3s ease-out;
+
+    &--error {
+      background-color: #e53e3e;
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    &__submit {
+      width: 100%;
+    }
+
+    &__form-group {
+      input, textarea {
+        font-size: 16px; // Prevent zoom on mobile
+      }
+    }
+  }
+}

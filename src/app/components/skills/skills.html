@@ -1,0 +1,20 @@
+<section id="skills" class="skills" aria-labelledby="skills-title" appIntersectionObserver (intersectionOnce)="onSectionVisible()">
+  <div class="skills__content">
+    <h2 id="skills-title" class="skills__title">Technical Skills</h2>
+    <div class="skills__categories">
+      <div class="skills__category" *ngFor="let category of categories; let i = index">
+        <h3 class="skills__category-title">{{category}}</h3>
+        <div class="skills__grid" role="list">
+          <div class="skills__item" *ngFor="let skill of getSkillsByCategory(category); let j = index" 
+               role="listitem"
+               [class.animate]="isVisible">
+            <div class="skills__icon" aria-hidden="true">
+              <fa-icon [icon]="skill.icon"></fa-icon>
+            </div>
+            <h4 class="skills__name">{{skill.name}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
