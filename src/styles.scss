@@ -25,7 +25,12 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   line-height: 1.2;
 }
@@ -44,6 +49,7 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -59,10 +65,10 @@ h1, h2, h3, h4, h5, h6 {
   .container {
     padding: 0 1rem;
   }
-  
-    .navbar__toggle{
-      height: 2.2rem !important;
-    }
+
+  button.navbar__toggle.active {
+    height: 2.2rem !important;
+  }
 }
 
 /* Accessibility Utilities */
@@ -102,5 +108,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Adjust based on your navbar height */
+  scroll-padding-top: 80px;
+  /* Adjust based on your navbar height */
 }
