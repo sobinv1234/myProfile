@@ -85,13 +85,13 @@ export class ContactComponent implements OnInit {
             this.submitError = false;
             this.submitErrorMessage = '';
             this.contactForm.reset();
-             setTimeout(() => {
+            setTimeout(() => {
             this.submitSuccess = true;
             }, 1000);
             // Reset success message after 5 seconds
             setTimeout(() => {
               this.submitSuccess = false;
-            }, 5000);
+            }, 6000);
           } else {
             throw new Error(response.error || 'Form submission failed');
           }
