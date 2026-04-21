@@ -33,15 +33,17 @@ export class ProjectsComponent {
       title: 'Aviva Angular Upgrade',
       description: 'Led migration of a large enterprise application from Angular v10 to v17, integrated ADF v7, resolved compatibility issues and improved stability.',
       technologies: ['Angular', 'TypeScript', 'ADF v7', 'Git'],
-      imageLoaded: false,
-      isVisible: false
+      imageUrl: 'aviva.png', 
+      imageLoaded: true,
+      isVisible: true
     },
     {
       title: 'Unilever API Integration',
       description: 'Implemented UI modules consuming Unilever’s RESTful APIs, optimised load time via payload reduction and lazy loading, and improved error handling with backend collaboration.',
       technologies: ['Angular', 'TypeScript', 'REST APIs', 'Lazy Loading'],
-      imageLoaded: false,
-      isVisible: false
+      imageUrl: 'unilever.png',
+      imageLoaded: true,
+      isVisible: true
     }
   ];
 

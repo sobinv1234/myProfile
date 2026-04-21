@@ -69,6 +69,10 @@ h6 {
   button.navbar__toggle.active {
     height: 2.2rem !important;
   }
+  .experience__icon{
+        grid-column: 1 !important;
+        left: -62px !important;
+  }
 }
 
 /* Accessibility Utilities */

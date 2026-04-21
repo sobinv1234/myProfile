@@ -152,6 +152,7 @@
   }
 
   &__tech {
+    list-style: none;
     background: #e2e8f0;
     color: #4a5568;
     padding: 0.3rem 0.8rem;
@@ -243,4 +244,9 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.projects__image.aviva {
+  background: url('../../../assets/images/aviva.png') no-repeat;
+  background-size: cover;
 }
