@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
 import { HttpClient } from '@angular/common/http';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { SuccessDialogComponent } from 'src/app/shared/sucess-dialog/sucess-dialog';
 
 @Component({
   selector: 'app-contact',
@@ -30,6 +31,8 @@ export class ContactComponent implements OnInit {
   };
 
   contactForm: FormGroup;
+  dialog: any;
+  successMessage: any;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.contactForm = this.fb.group({
@@ -65,7 +68,11 @@ export class ContactComponent implements OnInit {
     }
     return '';
   }
-
+showDialog() {
+  this.dialog.open(SuccessDialogComponent, {
+    data: { message: this.successMessage }
+  });
+}
   onSubmit() {
     if (this.contactForm.valid && !this.isSubmitting) {
       this.isSubmitting = true;
@@ -88,7 +95,7 @@ export class ContactComponent implements OnInit {
             
             // Reset success message after 5 seconds
             setTimeout(() => {
-              this.submitSuccess = false;
+              this.submitSuccess = true;
             }, 5000);
           } else {
             throw new Error(response.error || 'Form submission failed');
