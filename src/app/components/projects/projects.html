@@ -1,47 +1,36 @@
 <section id="projects" class="projects" aria-labelledby="projects-title">
   <div class="projects__content">
-    <h2 id="projects-title" class="projects__title">Projects</h2>
+    <h2 id="projects-title" class="projects__title">Featured Projects</h2>
     <div class="projects__grid">
-      <article class="projects__card" *ngFor="let project of projects" 
-               appIntersectionObserver
-               [threshold]="0.1"
-               (intersectionChange)="project.isVisible = $event">
+      <article class="projects__card" *ngFor="let project of projects" appIntersectionObserver [threshold]="0.1"
+        (intersectionChange)="project.isVisible = $event">
         <div class="projects__image-container">
           <div class="projects__image-skeleton" [class.hidden]="project.imageLoaded"></div>
           <div class="projects__image" [class.loaded]="project.imageLoaded">
             <picture *ngIf="project.isVisible">
-              <source *ngFor="let source of getImageSources(project)"
-                      [type]="source.type"
-                      [srcset]="source.srcset">
-              <img [src]="getImagePlaceholder(project)"
-                   [srcset]="getImageSrcset(project)"
-                   sizes="(max-width: 768px) 100vw, 50vw"
-                   [alt]="project.title + ' project screenshot'"
-                   (load)="onImageLoad(project)"
-                   [class.visible]="project.imageLoaded"
-                   loading="lazy"
-                   decoding="async">
+              <source *ngFor="let source of getImageSources(project)" [type]="source.type" [srcset]="source.srcset">
+              <img [src]="getImagePlaceholder(project)" [srcset]="getImageSrcset(project)"
+                sizes="(max-width: 768px) 100vw, 50vw" [alt]="project.title + ' project screenshot'"
+                (load)="onImageLoad(project)" [class.visible]="project.imageLoaded" loading="lazy" decoding="async">
             </picture>
           </div>
         </div>
         <div class="projects__info">
           <h3 class="projects__card-title">{{project.title}}</h3>
           <p class="projects__description">{{project.description}}</p>
+          <p class="projects__description">{{project.myDuties}}</p>
+          <p class="projects__role">{{project.role}}</p>
           <ul class="projects__technologies" aria-label="Technologies used">
             <li class="projects__tech" *ngFor="let tech of project.technologies">{{tech}}</li>
           </ul>
           <div class="projects__links" *ngIf="project.githubUrl || project.liveUrl">
-            <a *ngIf="project.githubUrl" [href]="project.githubUrl" 
-               target="_blank" rel="noopener noreferrer" 
-               class="projects__link"
-               [attr.aria-label]="'View ' + project.title + ' source code on GitHub'">
+            <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" rel="noopener noreferrer"
+              class="projects__link" [attr.aria-label]="'View ' + project.title + ' source code on GitHub'">
               <fa-icon [icon]="faGithub" aria-hidden="true"></fa-icon>
               <span>GitHub</span>
             </a>
-            <a *ngIf="project.liveUrl" [href]="project.liveUrl" 
-               target="_blank" rel="noopener noreferrer"
-               class="projects__link"
-               [attr.aria-label]="'View ' + project.title + ' live demo'">
+            <a *ngIf="project.liveUrl" [href]="project.liveUrl" target="_blank" rel="noopener noreferrer"
+              class="projects__link" [attr.aria-label]="'View ' + project.title + ' live demo'">
               <fa-icon [icon]="faLink" aria-hidden="true"></fa-icon>
               <span>Live Demo</span>
             </a>

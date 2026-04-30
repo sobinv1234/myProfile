@@ -25,7 +25,11 @@
   }
 
   &__name {
-    font-weight: bold;
+    font-family: 'Caveat', cursive;
+    font-weight: 400;
+    margin: 0;
+    font-size: 80px;
+    line-height: 1;
     background: linear-gradient(90deg, #4a90e2, #67b26f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -38,12 +42,18 @@
     color: #67b26f;
   }
 
+  &__quot {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #a0aec0;
+  }
+
   &__summary {
     font-size: clamp(1rem, 2vw, 1.2rem);
     line-height: 1.6;
     margin-bottom: 2rem;
     color: #a0aec0;
-    max-width: 600px;
   }
 
   &__cta {
@@ -58,21 +68,21 @@
     font-weight: bold;
     text-decoration: none;
     transition: all 0.3s ease;
-    
+
     &:first-child {
       background: #4a90e2;
       color: white;
-      
+
       &:hover {
         background: #357abd;
         transform: translateY(-2px);
       }
     }
-    
+
     &--outline {
       border: 2px solid #4a90e2;
       color: #4a90e2;
-      
+
       &:hover {
         background: #4a90e2;
         color: white;
@@ -104,6 +114,7 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);

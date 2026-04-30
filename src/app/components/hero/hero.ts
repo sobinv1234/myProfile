@@ -11,7 +11,8 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./hero.scss']
 })
 export class HeroComponent {
-  name = 'Sobin Varghese';
+  name = 'Sobin Varghese,';
   role = 'Frontend Developer';
-  summary = 'Results-driven Software Developer with over 7 years of experience in front-end development, specializing in React, Angular, JavaScript, and HTML5/CSS3. Proven ability to design, prototype (using Figma), and deliver responsive, high-performance web applications for large clients like Unilever and Aviva. Adept at coordinating with backend teams, bug-fixing, and upgrading legacy systems.';
+  quote = 'As a developer, I specialize in creating modular and scalable front-end architectures that deliver seamless user experiences. I focus on writing clean, efficient, and maintainable code while continuously learning and adapting to modern web technologies.';
+  summary = 'I specialize in React, Angular, JavaScript, and HTML5/CSS3, with experience in designing and prototyping using Figma. I’ve delivered responsive, high-performance applications for enterprise-level projects, collaborating closely with backend teams to debug issues, optimize performance, and modernize legacy systems.';
 }
