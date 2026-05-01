@@ -1,7 +1,12 @@
 .education {
   padding: 6rem 2rem;
   background-color: #f8f9fa;
-
+  background: url(../../../assets/images/joanna-kosinska-unsplash.jpg) no-repeat;
+  background-position: top right;
+  background-size: cover;
+  padding-bottom: 100px;
+  background-attachment: fixed;
+  
   &__content {
     max-width: 1200px;
     margin: 0 auto;
@@ -22,7 +27,7 @@
       transform: translateX(-50%);
       width: 50px;
       height: 3px;
-      background: linear-gradient(90deg, #4a90e2, #67b26f);
+      background: linear-gradient(90deg, #483d1a, #67b26f);
     }
   }
 

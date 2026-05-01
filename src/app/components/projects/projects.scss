@@ -3,6 +3,10 @@
 .projects {
   padding: 6rem 2rem;
   background-color: #f8f9fa;
+  background: url(../../../assets/images/project.jpg) no-repeat;
+  background-position: top right;
+  background-size: cover;
+  background-attachment: fixed;
 
   &__content {
     max-width: 1200px;

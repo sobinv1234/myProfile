@@ -1,6 +1,11 @@
 .experience {
   padding: 6rem 2rem;
-  background-color: #ffffff;
+  background: #A1C6D7;
+  background: url(../../../assets/images/experience.jpg) no-repeat;
+  background-position: top right;
+  background-size: cover;
+  padding-bottom: 100px;
+  background-attachment: fixed;
 
   &__content {
     max-width: 1200px;
@@ -47,7 +52,7 @@
   &__item {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 0 2rem;
     margin-bottom: 3rem;
     position: relative;
 
@@ -64,6 +69,7 @@
           align-items: flex-end;
         }
       }
+
       .experience__icon {
         grid-column: 2;
         justify-self: start;
@@ -84,19 +90,23 @@
     z-index: 1;
     transition: all 0.3s ease;
     box-shadow: 0 0 0 5px #fff, 0 0 0 7px #4a90e2;
+
+    @media (max-width: 1024px) {
+      top: 0 !important;
+    }
   }
 
   &__details {
     padding: 1.5rem;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 
     @media (hover: hover) {
       &:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 
         .experience__icon {
           transform: scale(1.1);
@@ -203,6 +213,7 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
